@@ -6,6 +6,31 @@
     fontWeight: 'bold',
     borderRadius: '20px'
   }">
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, id.
+    Меняем CSS свойства через директиву
   </p>
+
+  <p appStyle="magenta" [dStyles] ="{
+    border: '2px dotted magenta',
+    fontWeight: 'italic',
+    borderRadius: '20%'
+  }">
+    Меняем CSS свойства через директиву
+  </p>
+
+  <button class="btn" (click)="isVisible = !isVisible" >Toggle</button>
+
+  <div class="wrap" *ngIf="isVisible">
+    <p>ngIf container</p>
+  </div>
+
+  <ng-template  [ngIf]="isVisible">
+    <div class="wrap">
+      <p>ngIf template container</p>
+    </div>
+  </ng-template>
+
+  <div class="wrap" *appIfnot="!isVisible">
+    <p>ifNot custom directive</p>
+  </div>
+
 </div>
